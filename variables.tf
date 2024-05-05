@@ -40,6 +40,13 @@ variable "restrictions" {
     locations = []
   }
 }
+
+variable "use_custom_origin_config" {
+  type = bool
+  default = true
+  description = "optional server selection"
+}
+
 variable "default_cache_behavior" {
   type = object({
     path_pattern = string

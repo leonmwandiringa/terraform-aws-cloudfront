@@ -5,11 +5,15 @@ resource "aws_cloudfront_distribution" "default" {
     origin_id                = var.origin["origin_id"]
     origin_path = var.origin["origin_path"]
 
-    custom_origin_config {
-			http_port              = 80
-			https_port             = 443
-			origin_protocol_policy = var.origin["protocol_policy"]
-			origin_ssl_protocols   = ["TLSv1","TLSv1.1","TLSv1.2"]
+    dynamic "custom_origin_config" {
+      for_each = var.use_custom_origin_config == true ? [1] : []
+      content {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = var.origin["protocol_policy"]
+        origin_ssl_protocols   = ["TLSv1","TLSv1.1","TLSv1.2"]
+      }
+			
     }
 
   }
