@@ -12,3 +12,8 @@ output "hosted_zone_id" {
   value = aws_cloudfront_distribution.default.hosted_zone_id
   description = "distribution arn"
 }
+
+output "domain_name" {
+  value = aws_cloudfront_distribution.default.domain_name
+  description = "distribution domain_name"
+}
