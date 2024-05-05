@@ -71,6 +71,7 @@ variable "viewer_certificate" {
   type = object({
     is_cloudfront_default_certificate = bool
     acm_certificate_arn = string
+    ssl_support_method = string
   })
   default = {
     acm_certificate_arn = null
