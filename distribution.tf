@@ -50,6 +50,7 @@ resource "aws_cloudfront_distribution" "default" {
     geo_restriction {
       restriction_type = var.restrictions["restriction_type"]
       locations        = var.restrictions["locations"]
+      ssl_support_method = var.restrictions["ssl_support_method"]
     }
   }
 

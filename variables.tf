@@ -75,6 +75,7 @@ variable "viewer_certificate" {
   default = {
     acm_certificate_arn = null
     is_cloudfront_default_certificate = true
+    ssl_support_method = null
   }
 }
 
