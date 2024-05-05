@@ -50,7 +50,6 @@ resource "aws_cloudfront_distribution" "default" {
     geo_restriction {
       restriction_type = var.restrictions["restriction_type"]
       locations        = var.restrictions["locations"]
-      ssl_support_method = var.restrictions["ssl_support_method"]
     }
   }
 
@@ -59,5 +58,6 @@ resource "aws_cloudfront_distribution" "default" {
   viewer_certificate {
     cloudfront_default_certificate = var.viewer_certificate["is_cloudfront_default_certificate"]
     acm_certificate_arn = var.viewer_certificate["acm_certificate_arn"]
+    ssl_support_method = var.viewer_certificate["ssl_support_method"]
   }
 }
